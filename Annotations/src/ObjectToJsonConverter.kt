@@ -19,7 +19,7 @@ class ObjectToJsonConverter {
         for (field in clazz.declaredFields) {
             field.isAccessible = true
             if (field.isAnnotationPresent(JsonElement::class.java)) {
-                jsonElementsMap[field.getKey(JsonElement::class.java)] = field[`object`]
+                jsonElementsMap[field.getDeclaredAnnotation(JsonElement::class.java).key.ifBlank { field.name }] = field[`object`]
             }
         }
 
