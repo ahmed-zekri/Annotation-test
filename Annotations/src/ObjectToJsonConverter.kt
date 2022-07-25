@@ -55,9 +55,7 @@ class ObjectToJsonConverter {
     }
 }
 
-class JsonSerializationException(message: String?) : Throwable() {
-
-}
+class JsonSerializationException(message: String?) : Throwable(message)
 
 
 
